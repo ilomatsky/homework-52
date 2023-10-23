@@ -1,24 +1,21 @@
 import Card from './Card';
 
 class CardDeck {
-    private deck: Card[];
+    private cards: Card[];
 
     constructor() {
-        this.deck = [];
-        const ranks = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K', 'A'];
-        const suits = ['diams', 'hearts', 'clubs', 'spades'];
-
-        suits.forEach((suit) => {
-            ranks.forEach((rank) => {
-                this.deck.push(new Card(rank, suit));
-            });
-        });
+        this.cards = [];
+        for (const suit of ['diams', 'hearts', 'clubs', 'spades']) {
+            for (const rank of ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K', 'A']) {
+                const card = new Card(rank, suit);
+                this.cards.push(card);
+            }
+        }
     }
 
     public getCard(): Card {
-        const randomIndex = Math.floor(Math.random() * this.deck.length);
-        const card = this.deck.splice(randomIndex, 1)[0];
-        return card;
+        const randomIndex = Math.floor(Math.random() * this.cards.length);
+        return this.cards.splice(randomIndex, 1)[0];
     }
 
     public getCards(howMany: number): Card[] {
@@ -32,3 +29,4 @@ class CardDeck {
 }
 
 export default CardDeck;
+
