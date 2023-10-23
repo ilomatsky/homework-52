@@ -1,21 +1,24 @@
-import { Component } from 'react';
+import React from 'react';
 
 interface CardProps {
     rank: string;
-    suit: string;
-    suitImg: string;
+    suit: 'diams' | 'hearts' | 'clubs' | 'spades';
 }
 
-class CardComponent extends Component<CardProps> {
-    render() {
-        const { rank, suit , suitImg} = this.props;
-        return (
-            <span className={`card rank-${rank.toLowerCase()} ${suit}`}>
-                <span className="rank">{rank}</span>
-                <span className="suit">{suitImg}</span>
-            </span>
-        );
-    }
-}
+const Card: React.FC<CardProps> = ({rank, suit}) => {
+    const suitsSymbols: { [key: string]: string } = {
+        diams: '♦',
+        hearts: '♥',
+        clubs: '♣',
+        spades: '♠',
+    };
 
-export default CardComponent;
+    return (
+        <span className={`card rank-${rank.toLowerCase()} ${suit}`}>
+            <span className="rank">{rank}</span>
+            <span className="suit">{suitsSymbols[suit]}</span>
+        </span>
+    );
+};
+
+export default Card;

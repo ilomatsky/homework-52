@@ -1,7 +1,7 @@
 import Card from './Card';
 
 class PokerHand {
-    private cards: Card[];
+    private readonly cards: Card[];
 
     constructor(cards: Card[]) {
         this.cards = cards;
