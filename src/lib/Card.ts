@@ -1,12 +1,10 @@
 class Card {
     public rank: string;
     public suit: string;
-    public suitImg: string;
 
-    constructor(rank: string, suit: string, suitImg: string) {
+    constructor(rank: string, suit: string) {
         this.rank = rank;
         this.suit = suit;
-        this.suitImg = suitImg;
     }
 }
 
