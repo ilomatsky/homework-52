@@ -3,6 +3,7 @@ import CardComponent from './CardComponent';
 import CardDeck from './lib/CardDeck';
 import PokerHand from './lib/PokerHand';
 import Card from './lib/Card';
+import './App.css';
 
 const App: React.FC = () => {
     const [cards, setCards] = useState<CardComponent[]>([]);
